@@ -1,44 +1,34 @@
 import React, { useState } from "react";
 
 const Memo = () => {
-    const [memoList, setMemoList] = useState([]);
-    const [inputValue, setInputValue] = useState("");
+  const [value, setVal] = useState("");
 
-    function handleInput(event) {
-        setInputValue(event.target.value);
-    }
+  const [skill, setSkill] = useState([]);
+  //Function to handel submit
+  function handelSubmit(e) {
+    e.preventDefault();
+    value != "" && setSkill([...skill, value.trim()]);
+    setVal("");
+  }
 
-    function handleForm(event) {
-        event.preventDefault();
-
-        if (inputValue !== "") {
-            setMemoList([...memoList, inputValue])
-            setInputValue("");
-        }
-    }
-
-    return (
-        <div>
-            <h1>React.memo</h1>
-
-            <form onSubmit={handleForm}>
-                <input type="text" value={inputValue} onChange={handleInput} id="skill-input"/>
-                <button type="submit" id="skill-btn">Add Skill</button>
-
-                {
-                    <ul>
-                        {
-                            memoList.map((item) => (
-                                <li>
-                                    {item}
-                                </li>
-                            ))
-                        }
-                    </ul>
-                }
-            </form>
-        </div>
-    )
-}
+  return (
+    <div className="Memo">
+      <h1>React.memo</h1>
+      <br></br>
+      <form onSubmit={handelSubmit}>
+        <input id="skill-input"
+          type="text"
+          value={value}
+          onInput={(e) => {
+            setVal(e.target.value);
+          }}
+        ></input>
+        <button id="skill-btn" type="submit">Add Skill</button>
+      </form>
+      <br></br>
+      <ul>{skill && skill.map((val, index) => <li key={index} id={"item-"+ val}>{val}</li>)}</ul>
+    </div>
+  );
+};
 
 export default Memo;

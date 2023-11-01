@@ -1,24 +1,17 @@
 import React, { useState } from "react";
 
-const Todo = () => {
-  const [todoList, setTodoList] = useState([]);
-
-
-  return(
-    <div>
-        <h1>My todos</h1>
-        {
-            todoList.map((todo) => (
-                <div>
-                    {todo}
-                    <br />
-                    <br />
-                </div>
-            ))
-        }
-        <button onClick={() => setTodoList([...todoList, "New Todo"])} id="add-todo-btn">Add Todo</button>
+const Todos = () => {
+  const [todo, setTodo] = useState([]);
+  return (
+    <div className="Todos">
+      <h1>My todos</h1>
+      <div className="todo-holder">
+        {todo && todo.map((val,index) => <p key={index} id={"todo-"+ index}>{val}</p>)}
+      </div>
+      <br></br>
+      <button id="add-todo-btn" onClick={() => setTodo([...todo, "New Todo"])}>Add Todo</button>
     </div>
-  )
-}
+  );
+};
 
-export default Todo;
+export default Todos;
