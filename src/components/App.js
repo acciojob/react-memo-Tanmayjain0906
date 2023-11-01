@@ -6,7 +6,7 @@ import Memo from "./Memo";
 const App = () => {
 
     return(
-        <div>
+        <div id='main'>
             <h1>React.useMemo</h1>
             <Todo />
             <hr />
