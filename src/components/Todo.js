@@ -16,7 +16,7 @@ const Todo = () => {
                 </div>
             ))
         }
-        <button onClick={() => setTodoList([...todoList, "New Todo"])}>Add Todo</button>
+        <button onClick={() => setTodoList([...todoList, "New Todo"])} id="add-todo-btn">Add Todo</button>
     </div>
   )
 }
