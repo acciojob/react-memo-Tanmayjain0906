@@ -22,8 +22,8 @@ const Memo = () => {
             <h1>React.memo</h1>
 
             <form onSubmit={handleForm}>
-                <input type="text" value={inputValue} onChange={handleInput} />
-                <button type="submit" id="skill-input">Add Skill</button>
+                <input type="text" value={inputValue} onChange={handleInput} id="skill-input"/>
+                <button type="submit" id="skill-btn">Add Skill</button>
 
                 {
                     <ul>

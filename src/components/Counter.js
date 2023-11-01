@@ -5,11 +5,11 @@ const Counter = () => {
 
     return(
         <div>
-            <p>Count : {count}<button onClick={() => setCount(count+1)} id="incr-cnt">+</button></p>
+            <p id="incr-cnt">Count : {count}<button onClick={() => setCount(count+1)} id="incr-cnt">+</button></p>
 
             <h1>Expensive Calculation</h1>
 
-            <p>{1000000000 + count}</p>
+            <p id='calc'>{1000000000 + count}</p>
         </div>
     )
 }
